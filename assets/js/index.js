@@ -49,8 +49,8 @@ var mdcda_code;
 //var pDocReq = "0";
 
 var loadmsg = "Please Wait....";
-//var GBCServicePath = "http://tiaapp.goyalonline.in/";
-var GBCServicePath = "http://localhost:51739/";
+var GBCServicePath = "http://tiaapp.goyalonline.in/";
+//var GBCServicePath = "http://localhost:51739/";
 //var WebSerUrl = "http://localhost:8262/";
 var pictureSource;
 var destinationType;
