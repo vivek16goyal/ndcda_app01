@@ -4218,7 +4218,8 @@ function SubstitudeItemList() {
     }
 }
 function SetDataFromSubstitude(icode, iname, PACKING, CCODE, MAKE) {
-  //  pack = pack.replace("$", "'");
+    //  pack = pack.replace("$", "'");
+    $("#Substitude_Grid").html("");
     $("#lblItmMRP").text(icode);
     //$("#lblRetailrate").text(rate);
     //$("#lblRate").text(Wrate);
