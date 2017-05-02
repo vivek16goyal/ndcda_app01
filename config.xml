@@ -1,7 +1,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.GBC.NDCDA" versionCode="1" version="1.0.0">
   <name>NDCDA</name>
   <description>NAGPUR DISTRICT CHEMIST AND DRUGGISTS ASSOCIATION</description>
-  <author href="http://goyalonline.com" email="yashaswi@goyalonline.com">VIVEK UMREDKAR</author>
+  <author href="http://goyalonline.com" email="vivek.umrekdkar@goyalonline.com">VIVEK UMREDKAR</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="portrait"/>
