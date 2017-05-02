@@ -749,13 +749,18 @@ function CheckPartyRegistration(val) {
                                     localStorage.setItem("PTNAME", nameSer[3]);
                                     localStorage.setItem("PTCODE", nameSer[4]);
                                     localStorage.setItem("PTNO", nameSer[5]);
-                                    localStorage.setItem("PTEMAIL", nameSer[6]);
-                                    localStorage.setItem("PTADD", nameSer[7]);
-                                    localStorage.setItem("State", nameSer[9]);
-                                    localStorage.setItem("City", nameSer[10]);
-                                    localStorage.setItem("Area", nameSer[11]);
-                                    localStorage.setItem("DocName", nameSer[12]);
-                                    localStorage.setItem("DocCode", nameSer[13]);
+                                    localStorage.setItem("PTADD", nameSer[6]);
+                                    localStorage.setItem("DLICNO21", nameSer[7]);
+                                    localStorage.setItem("DLICNO20", nameSer[8]);
+                                    localStorage.setItem("DLICNO21B", nameSer[9]);
+                                    localStorage.setItem("DLICNO20B", nameSer[10]);
+                                    localStorage.setItem("DLICNO20C", nameSer[11]);
+                                    localStorage.setItem("DLICNO20D", nameSer[12]);
+                                    localStorage.setItem("City", nameSer[13]);
+                                    localStorage.setItem("PHNO", nameSer[14]);
+                                    localStorage.setItem("MST", nameSer[15]);
+
+                                    localStorage.setItem("AREACODE", nameSer[16]);
                                     $("#div-clientCode").popup("close");
                                     if (nameSer[1] == "") {
                                         $("#lblSupp").text(Heading);
@@ -797,13 +802,18 @@ function CheckPartyRegistration(val) {
                                     localStorage.setItem("PTNAME", nameSer[3]);
                                     localStorage.setItem("PTCODE", nameSer[4]);
                                     localStorage.setItem("PTNO", nameSer[5]);
-                                    localStorage.setItem("PTEMAIL", nameSer[6]);
-                                    localStorage.setItem("PTADD", nameSer[7]);
-                                    localStorage.setItem("State", nameSer[9]);
-                                    localStorage.setItem("City", nameSer[10]);
-                                    localStorage.setItem("Area", nameSer[11]);
-                                    localStorage.setItem("DocName", nameSer[12]);
-                                    localStorage.setItem("DocCode", nameSer[13]);
+                                    localStorage.setItem("PTADD", nameSer[6]);
+                                    localStorage.setItem("DLICNO21", nameSer[7]);
+                                    localStorage.setItem("DLICNO20", nameSer[8]);
+                                    localStorage.setItem("DLICNO21B", nameSer[9]);
+                                    localStorage.setItem("DLICNO20B", nameSer[10]);
+                                    localStorage.setItem("DLICNO20C", nameSer[11]);
+                                    localStorage.setItem("DLICNO20D", nameSer[12]);
+                                    localStorage.setItem("CITY", nameSer[13]);
+                                    localStorage.setItem("PHNO", nameSer[14]);
+                                    localStorage.setItem("MST", nameSer[15]);
+
+                                    localStorage.setItem("AREACODE", nameSer[16]);
                                     if (APPType == "@") {
                                         PCODE = nameSer[2];
                                     }
@@ -3773,12 +3783,19 @@ function EditProfile() {
     $("#pro_txtReg").val(localStorage.getItem("PTCODE"));
     $("#pro_txtname").val(localStorage.getItem("PTNAME"));
     $("#pro_txtmo").val(localStorage.getItem("PTNO"));
-    $("#pro_txtemail").val(localStorage.getItem("PTEMAIL"));
+    $("#pro_txtemail").val(localStorage.getItem("MST"));
     $("#pro_txtadd").val(localStorage.getItem("PTADD"));
     $("#Textstate").val(localStorage.getItem("State"));
-    $("#Textcity").val(localStorage.getItem("City"));
+    $("#city1").val(localStorage.getItem("City"));
     $("#Textarea").val(localStorage.getItem("Area"));
-    $("#pro_txtDocname").val(localStorage.getItem("DocName"));
+    $("#pro_txtPHNO").val(localStorage.getItem("PHNO"));
+    $("#AREAcode").val(localStorage.getItem("AREACODE"));
+    $("#DLLIC_no20").val(localStorage.getItem("DLICNO20"));
+    $("#DLLIC_no21").val(localStorage.getItem("DLICNO21"));
+    $("#DLLIC_no20B").val(localStorage.getItem("DLICNO20B"));
+    $("#DLLIC_no21B").val(localStorage.getItem("DLICNO21B"));
+    $("#DLLIC_no20C").val(localStorage.getItem("DLICNO20C"));
+    $("#DLLIC_no20D").val(localStorage.getItem("DLICNO20D"));
     SetStaeCity();
     if ($("#pro_txtReg") == "") {
         alert("Please Select Supplier");
@@ -3910,6 +3927,25 @@ function UpdateProfileData() {
             area = localStorage.getItem("Area");
         }
     }
+    $("#city1").val(localStorage.getItem("City"));
+    $("#Textarea").val(localStorage.getItem("Area"));
+    $("#pro_txtDocname").val(localStorage.getItem("PHNO"));
+    $("#AREAcode").val(localStorage.getItem("AREACODE"));
+    $("#DLLIC_no20").val(localStorage.getItem("DLICNO20"));
+    $("#DLLIC_no21").val(localStorage.getItem("DLICNO21"));
+    $("#DLLIC_no20B").val(localStorage.getItem("DLICNO20B"));
+    $("#DLLIC_no21B").val(localStorage.getItem("DLICNO21B"));
+    $("#DLLIC_no20C").val(localStorage.getItem("DLICNO20C"));
+    $("#DLLIC_no20D").val(localStorage.getItem("DLICNO20D"));
+
+    if ($("#DLLIC_no20").text() == "" && $("#DLLIC_no21").text() == "" && $("#DLLIC_no20B").text() == "" && $("#DLLIC_no21B").text() == "" && $("#DLLIC_no20C").text()=="" && $("#DLLIC_no20D").text()=="")
+    {
+        loadmsg = "please Insert DLLIC NO...";
+        $("#Label4").focus();
+        $("#Label4").text('DLLIC NO Cannot be NULL...');
+        return;
+       //(".show-page-loading-msg").click();
+    }
     var WebSerUrl = localStorage.getItem("APIURL");
     if (WebSerUrl == "" || WebSerUrl == null) {
         var gbcUrl = GBCServicePath + "/Values/UpdatePtData?PtCode=" + $("#pro_txtReg").val() + "&Ptname=" + $("#pro_txtname").val() + "&MoNo=" + $("#pro_txtmo").val() + "&Email=" + $("#pro_txtemail").val() + "&Add=" + $("#pro_txtadd").val() + "&Stcode=" + state + "&CtCode=" + city + "&area=" + area + "&DrName=" + DrName + "&DrCode=" + DrCode;
@@ -3943,26 +3979,45 @@ function UpdateProfileData() {
             }
         });
     } else {
-        WebSerUrl = WebSerUrl + "/Values/UpdatePatientData?PtCode=" + $("#pro_txtReg").val() + "&Ptname=" + $("#pro_txtname").val() + "&MoNo=" + $("#pro_txtmo").val() + "&Email=" + $("#pro_txtemail").val() + "&Add=" + $("#pro_txtadd").val() + "&Stcode=" + state + "&CtCode=" + city + "&area=" + area + "&DrName=" + DrName + "&DrCode=" + DrCode;
-
+       //WebSerUrl = WebSerUrl + "/Values/UpdatePatientData?PtCode=" + $("#pro_txtReg").val() + "&Ptname=" + $("#pro_txtname").val() + "&MoNo=" + $("#pro_txtmo").val() + "&Email=" + $("#pro_txtemail").val() + "&Add=" + $("#pro_txtadd").val() + "&Stcode=" + state + "&CtCode=" + city + "&area=" + area + "&DrName=" + DrName + "&DrCode=" + DrCode;
+        WebSerUrl = WebSerUrl + "/Values/UpdatePartyDataforndcda?PCODE=" + $("#pro_txtReg").val() + "&PNAME=" + $("#pro_txtname").val() + "&AREACODE=" + $("#AREAcode").val() + "&Add1= " + $("#pro_txtadd").val() + "&AUTHMOB=" + $("#pro_txtmo").val() + "&DLICNO21=" + $("#DLLIC_no21").val() + "&DLICNO20=" + $("#DLLIC_no20").val() + "&DLICNO21B=" + $("#DLLIC_no21B").val() + "&DLICNO20B=" + $("#DLLIC_no20B").val() + "&DLICNO20C=" + $("#DLLIC_no20C").val() + "&DLICNO20D= " + $("#DLLIC_no20D").val() + "&CITY=" + $("#city1").val() + "&PHNO=" + $("#pro_txtPHNO").val() + "&MST=" + $("#pro_txtemail").val() + " ";
         $.ajax({
             url: WebSerUrl,
             type: "get",
             dataType: 'json',
             processData: true,
+           
             success: function (data) {
+                debugger;
                 $(".hide-page-loading-msg").click();
+                
                 if (data == "1") {
-                    localStorage.setItem("PTNAME", $("#pro_txtname").val());
-                    localStorage.setItem("PTNO", $("#pro_txtmo").val());
-                    localStorage.setItem("PTEMAIL", $("#pro_txtemail").val());
-                    localStorage.setItem("PTADD", $("#pro_txtadd").val());
-                    localStorage.setItem("State", localStorage.getItem("State"));
-                    localStorage.setItem("City", localStorage.getItem("City"));
-                    localStorage.setItem("Area", localStorage.getItem("Area"));
-                    localStorage.setItem("DocCode", DrCode);
-                    localStorage.setItem("DocName", DrName);
-                    $("#profile_name").text($("#pro_txtname").val());
+                    
+                    //localStorage.setItem("PTNAME", $("#pro_txtname").val());
+                    //localStorage.setItem("PTNO", $("#pro_txtmo").val());
+                    //localStorage.setItem("PTEMAIL", $("#pro_txtemail").val());
+                    //localStorage.setItem("PTADD", $("#pro_txtadd").val());
+                    //localStorage.setItem("State", localStorage.getItem("State"));
+                    //localStorage.setItem("City", localStorage.getItem("City"));
+                    //localStorage.setItem("Area", localStorage.getItem("Area"));
+                    //localStorage.setItem("DocCode", DrCode);
+                    //localStorage.setItem("DocName", DrName);
+                    //$("#profile_name").text($("#pro_txtname").val());
+                    localStorage.setItem("PTNAME", $("#pro_txtname").val() );
+                   // localStorage.setItem("PTCODE", nameSer[4]);
+                    localStorage.setItem("Add1", $("#AREAcode").val());
+                   // localStorage.setItem("PTADD", nameSer[6]);
+                    localStorage.setItem("DLICNO21", $("#DLLIC_no21").val());
+                    localStorage.setItem("DLICNO20", $("#DLLIC_no20").val());
+                    localStorage.setItem("DLICNO21B", $("#DLLIC_no21B").val());
+                    localStorage.setItem("DLICNO20B", $("#DLLIC_no20B").val());
+                    localStorage.setItem("DLICNO20C", $("#DLLIC_no20C").val());
+                    localStorage.setItem("DLICNO20D", $("#DLLIC_no20D").val());
+                    localStorage.setItem("City", $("#city1").val());
+                    localStorage.setItem("PHNO", $("#pro_txtPHNO").val());
+                    localStorage.setItem("MST", $("#pro_txtemail").val());
+
+                    localStorage.setItem("AREACODE", $("#AREAcode").val());
                     alert('Profile Update Successfully');
                 }
                 else {

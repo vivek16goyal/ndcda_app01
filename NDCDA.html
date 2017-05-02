@@ -613,7 +613,7 @@
                             <td>
                                 <table>
                                     <tr >
-                                        <td >
+                                        <td class='ui-first-child ui-last-child'>
                                             <p>Packing :</p>
                                         </td>
                                     </tr>
@@ -1055,12 +1055,15 @@
             <div class="pro-div-header " id="div-pro-div-header">
                 <center>                    
                     <label id="profile_name" style="color:#1390cf;font-size:19px" class="theme-color-txt-red"></label>
+                  
                      <a  onclick="EditProfile()"  >
                             <img src="assets/img/pencil2.png" id="A3" style="left:12vw;" class="pro-img1" /></a>
                        
                     <img id="Profile-img" src="assets/img/add-user.png" class="pro-img"/> 
                             <a  onclick="ProfileImage()" style="" >
-                            <img src="assets/img/camera.png" id="A2"  style="right:12vw;" class="pro-img1"/></a>                       
+                          <!--  <img src="assets/img/camera.png" id="A2"  style="right:12vw;" class="pro-img1"/></a>   -->
+                    
+                      <label id="Label4" style="color:#1390cf;font-size:19px" class="theme-color-txt-red"></label>                    
                 </center>
             </div>
             <div style="background-color: #2fa5e1; font-size: 14px; height: 40px; width: 120%; margin-left: -5%; margin-top: 10px;" class="theme-color-green">
@@ -1116,27 +1119,44 @@
                     <div data-role="popup" id="Div9" class="ui-content" data-theme="a" style="max-width: 350px;">
                         <p>It is recommanded to select name from List Only.</p>
                     </div>
-                    <label>Registration Code</label>
+                    <label style="color:blue">Registration Code</label>
                     <input type="text" placeholder="Enter Name" data-theme="a" id="pro_txtReg" readonly="true" />
-                    <label>Name</label>
-                    <input type="text" placeholder="Enter Name" data-theme="a" id="pro_txtname" pattern="[0-9]" />
-                    <label>Mobile No</label>
-                    <input type="number" data-theme="a" id="pro_txtmo" />
-                    <div id="pro_DocDiv">
-                        <label>Doctor Name</label>
-                        <input type="text" placeholder="Enter Doctor Name" data-theme="a" id="pro_txtDocname" onblur="SetDocName('2')" />
-                    </div>
-                    <label>Email-Id</label>
-                    <input type="email" placeholder="Email Id" data-theme="a" id="pro_txtemail" onblur="CheckEmail(this)" />
-
-                    <label for="selState">State Name <a id="a5" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
-                    <input type="text" onblur="CheckListValidation('4')" placeholder="State Name" data-theme="a" id="Textstate" data-type="search" />
-                    <label for="selcity">City Name <a id="a6" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
-                    <input type="text" onblur="CheckListValidation('5')" placeholder="City Name" data-theme="a" id="Textcity" data-type="search" />
-                    <label for="selarea">Area Name <a id="a7" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
-                    <input type="text" onblur="CheckListValidation('6')" placeholder="Area Name" data-theme="a" id="Textarea" data-type="search" />
-
-                    <label>Address</label>
+                    <label style="color:blue">Name</label>
+                    <input type="text" placeholder="Enter Name" data-theme="a" id="pro_txtname"  />
+                    <label style="color:blue">Mobile No</label>
+                    <input type="number" data-theme="a" id="pro_txtmo" pattern="[0-9]" maxlength="10"/>
+                   <!-- <div id="pro_DocDiv">-->
+                        <label style="color:blue">PHNO</label>
+                        <input type="text" placeholder="ENTER PHNO NO" data-theme="a" id="pro_txtPHNO" pattern="[0-9]" maxlength="10" />
+                    <!--</div>-->
+                    <label style="color:blue">Tin no</label>
+                    <input type="text" placeholder="Email Id" data-theme="a" id="pro_txtemail" maxlength="12" />
+                    <label for="selcity" style="color:blue">City Name <a id="a6" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
+                    <input type="text" placeholder="City" data-theme="a" id="city1" />
+                  
+                         <label style="color:blue">Area Code <a id="a7" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
+                    <input type="text" placeholder="Area Name" data-theme="a" id="AREAcode" />
+                   <!-- <input type="text" onblur="CheckListValidation('6')" placeholder="Area Name" data-theme="a" id="Textarea" data-type="search" />-->
+                    <label style="color:blue">DLLIC NO 20</label>
+                    <!--<input type="text" onblur="CheckListValidation('4')" placeholder="State Name" data-theme="a" id="Textstate" data-type="search" />-->
+                     <input type="text" placeholder="DLLIC NO" data-theme="a" id="DLLIC_no20" />
+                    <label style="color:blue">DLLIC NO 21<a id="a9" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
+                    <!--<input type="text" onblur="CheckListValidation('4')" placeholder="State Name" data-theme="a" id="Textstate" data-type="search" />-->
+                     <input type="text" placeholder="DLLIC NO" data-theme="a" id="DLLIC_no21" />
+                    <label style="color:blue">DLLIC NO 20B<a id="a10" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
+                    <!--<input type="text" onblur="CheckListValidation('4')" placeholder="State Name" data-theme="a" id="Textstate" data-type="search" />-->
+                     <input type="text" placeholder="DLLIC NO" data-theme="a" id="DLLIC_no20B" />
+                    <label style="color:blue">DLLIC NO 21B<a id="a11" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
+                    <!--<input type="text" onblur="CheckListValidation('4')" placeholder="State Name" data-theme="a" id="Textstate" data-type="search" />-->
+                     <input type="text" placeholder="DLLIC NO" data-theme="a" id="DLLIC_no21B" />
+                    <label style="color:blue">DLLIC NO 20C<a id="a12" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
+                    <!--<input type="text" onblur="CheckListValidation('4')" placeholder="State Name" data-theme="a" id="Textstate" data-type="search" />-->
+                     <input type="text" placeholder="DLLIC NO" data-theme="a" id="DLLIC_no20C" />
+                    <label style="color:blue">DLLIC NO 20D<a id="a13" style="display: none" href="#Div9" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext">i</a></label>
+                    <!--<input type="text" onblur="CheckListValidation('4')" placeholder="State Name" data-theme="a" id="Textstate" data-type="search" />-->
+                     <input type="text" placeholder="DLLIC NO" data-theme="a" id="DLLIC_no20D" />
+                 
+                    <label style="color:blue">Address</label>
                     <textarea placeholder="Address" data-theme="a" id="pro_txtadd"></textarea>
                     <center>
                             <input  type="button" value="Update" class="theme-color-btn" style="background: #1390cf;padding:8px 35px 8px 35px; color:white;border:none;cursor:pointer;" onclick="UpdateProfile()" />
